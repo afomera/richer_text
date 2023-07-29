@@ -9,6 +9,7 @@ module RicherText
 
   autoload :Attribute
   autoload :Content
+  autoload :Rendering
   autoload :Fragment
   autoload :Serialization
 end

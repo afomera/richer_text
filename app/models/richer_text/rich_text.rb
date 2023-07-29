@@ -1,17 +1,18 @@
 module RicherText
   class RichText < ApplicationRecord
-    belongs_to :record, polymorphic: true
+    belongs_to :record, polymorphic: true, touch: true
 
     serialize :body, RicherText::Content
 
     delegate :to_s, :nil?, to: :body
+    delegate :blank?, :empty?, :present?, to: :to_html
 
     has_many_attached :images
 
     before_save :update_images
 
     def to_html
-      body&.to_html
+      body&.to_html&.to_s
     end
 
     private

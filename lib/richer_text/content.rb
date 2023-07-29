@@ -1,6 +1,6 @@
 module RicherText
   class Content
-    include Serialization
+    include ActiveModel::Conversion, Serialization, Rendering
 
     delegate :blank?, :empty?, :html_safe, :present?, to: :to_html
 
@@ -15,7 +15,7 @@ module RicherText
     end
 
     def to_s
-      to_html.html_safe # TODO: add some kind of sanitization
+      render partial: to_partial_path, layout: false, locals: { content: self }
     end
 
     def to_html
@@ -41,6 +41,7 @@ module RicherText
       end
     end
 
-    attr_reader :body, :fragment
+    attr_reader :fragment
+    attr_accessor :body
   end
 end
