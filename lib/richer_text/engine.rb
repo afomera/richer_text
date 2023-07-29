@@ -10,5 +10,11 @@ module RicherText
         include RicherText::Attribute
       end
     end
+
+    initializer "richer_text.helper" do
+      ActiveSupport.on_load(:action_controller_base) do
+        helper RicherText::Engine.helpers
+      end
+    end
   end
 end

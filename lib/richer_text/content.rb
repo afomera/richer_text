@@ -15,7 +15,7 @@ module RicherText
     end
 
     def to_s
-      to_html
+      to_html.html_safe # TODO: add some kind of sanitization
     end
 
     def to_html
