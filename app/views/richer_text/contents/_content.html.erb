@@ -1,3 +1,3 @@
 <div class="richer-text">
-  <%= content.to_html.html_safe %>
+  <%= sanitize(content.to_html, attributes: %w(id class style data-color)) %>
 </div>
