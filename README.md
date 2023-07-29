@@ -58,14 +58,14 @@ Inside of your form partial:
 
 ```erb
   <%= form.label :body %>
-  <%= form.richer_text_area :body >
+  <%= form.richer_text_area :body %>
 ```
 
 Optionally you can pass arguments to the RicherText editor...
 
 ```erb
   <%= form.label :body %>
-  <%= form.richer_text_area :body, callouts: true, placeholder: "Write something..." >
+  <%= form.richer_text_area :body, callouts: true, placeholder: "Write something..." %>
 ```
 
 **Render the richer text content**
