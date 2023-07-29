@@ -1,4 +1,4 @@
-# desc "Explaining what the task does"
-# task :richer_text do
-#   # Task goes here
-# end
+desc "Installs RicherText into your application"
+task "richer_text:install" do
+  Rails::Command.invoke :generate, ["richer_text:install"]
+end
