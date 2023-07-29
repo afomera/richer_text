@@ -9,6 +9,13 @@ module RicherText
         rails_command "railties:install:migrations FROM=active_storage,richer_text", inline: true
       end
 
+      def copy_files
+        copy_file(
+          "app/views/richer_text/contents/_content.html.erb",
+          "app/views/richer_text/contents/_content.html.erb"
+        )
+      end
+
       def install_javascript_dependencies
         destination = Pathname(destination_root)
 
