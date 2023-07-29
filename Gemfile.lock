@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    richer_text (0.1.0)
+    richer_text (0.2.0)
       rails (> 7.0.0)
 
 GEM
