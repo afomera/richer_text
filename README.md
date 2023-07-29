@@ -2,6 +2,8 @@
 
 RicherText aims to provide a richer text editing experience than what comes out of the box with ActionText in Rails. **It is however a seperate thing from ActionText** and is **not** backwards compatible.
 
+RicherText uses React and TipTap under the hood to create an editor, this does mean that you'll have react and react-dom in your project, but you absolutely don't need to use it outside of the RicherText editor. Additionally there's currently a hard requirement for ActiveStorage as well.
+
 ## Installation
 
 Add this line to your application's Gemfile:
