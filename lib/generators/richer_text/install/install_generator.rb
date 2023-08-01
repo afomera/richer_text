@@ -14,6 +14,11 @@ module RicherText
           "app/views/richer_text/contents/_content.html.erb",
           "app/views/richer_text/contents/_content.html.erb"
         )
+
+        copy_file(
+          "lib/templates/active_record/model/model.rb.tt",
+          "lib/templates/active_record/model/model.rb.tt"
+        )
       end
 
       def install_javascript_dependencies
