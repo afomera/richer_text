@@ -34,6 +34,9 @@ module RicherText
         if destination.join("app/assets/stylesheets/application.tailwind.css").exist?
           say "Adding import to application.tailwind.css", :green
           prepend_to_file "app/assets/stylesheets/application.tailwind.css", %(@import "@afomera/richer-text/dist/css/richer-text.css";\n@import "highlight.js/styles/github-dark.css";\n)
+        elsif destination.join("app/assets/stylesheets/application.bootstrap.scss").exist?
+          say "Adding import to application.bootstrap.scss", :green
+          prepend_to_file "app/assets/stylesheets/application.bootstrap.scss", %(@import "@afomera/richer-text/dist/css/richer-text";\n@import "highlight.js/styles/github-dark";\n)
         end
       end
 
