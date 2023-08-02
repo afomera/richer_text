@@ -1,3 +1,3 @@
 <div class="richer-text">
-  <%= sanitize(content.to_html, tags: %w(div h1 h2 blockquote s del strong i em br pre code ol ul li table tbody th td tr p), attributes: %w(id class style data-color colspan rowspan)) %>
+  <%= sanitize(content.to_html, tags: %w(div img h1 h2 blockquote s del strong i em br pre code ol ul li table tbody th td tr p), attributes: %w(id class style data-color src alt colspan rowspan)) %>
 </div>
