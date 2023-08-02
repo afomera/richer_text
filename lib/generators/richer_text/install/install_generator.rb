@@ -14,6 +14,11 @@ module RicherText
           "app/views/richer_text/contents/_content.html.erb",
           "app/views/richer_text/contents/_content.html.erb"
         )
+
+        copy_file(
+          "app/assets/stylesheets/richer_text/richer-text.css",
+          "app/assets/stylesheets/richer-text.css"
+        )
       end
 
       def install_javascript_dependencies
@@ -33,10 +38,10 @@ module RicherText
 
         if destination.join("app/assets/stylesheets/application.tailwind.css").exist?
           say "Adding import to application.tailwind.css", :green
-          prepend_to_file "app/assets/stylesheets/application.tailwind.css", %(@import "@afomera/richer-text/dist/css/richer-text.css";\n@import "highlight.js/styles/github-dark.css";\n)
+          prepend_to_file "app/assets/stylesheets/application.tailwind.css", %(@import "@afomera/richer-text/dist/css/richer-text.css";\n@import "highlight.js/styles/github-dark.css";\n@import "richer-text.css";\n)
         elsif destination.join("app/assets/stylesheets/application.bootstrap.scss").exist?
           say "Adding import to application.bootstrap.scss", :green
-          prepend_to_file "app/assets/stylesheets/application.bootstrap.scss", %(@import "@afomera/richer-text/dist/css/richer-text";\n@import "highlight.js/styles/github-dark";\n)
+          prepend_to_file "app/assets/stylesheets/application.bootstrap.scss", %(@import "@afomera/richer-text/dist/css/richer-text";\n@import "highlight.js/styles/github-dark";\n@import "richer-text";\n)
         end
       end
 
