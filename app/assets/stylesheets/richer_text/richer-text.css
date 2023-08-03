@@ -30,3 +30,7 @@
 .richer-text p {
   margin: 0;
 }
+
+.richer-text img {
+  width: 100%;
+}
