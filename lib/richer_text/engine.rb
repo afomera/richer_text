@@ -1,5 +1,4 @@
 require "rails"
-require "nokogiri"
 
 module RicherText
   class Engine < ::Rails::Engine
@@ -12,8 +11,8 @@ module RicherText
     end
 
     initializer "richer_text.helper" do
-      ActiveSupport.on_load(:action_controller_base) do
-        helper RicherText::Engine.helpers
+      ActiveSupport.on_load(:action_controller) do
+        helper RicherText::TagHelper
       end
     end
   end

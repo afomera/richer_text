@@ -12,4 +12,5 @@ module RicherText
   autoload :Rendering
   autoload :Fragment
   autoload :Serialization
+  autoload :TagHelper
 end
