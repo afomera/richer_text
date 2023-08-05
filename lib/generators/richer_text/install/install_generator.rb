@@ -44,14 +44,6 @@ module RicherText
           prepend_to_file stylesheets.first, %(@import "@afomera/richer-text/dist/css/richer-text";\n@import "highlight.js/styles/github-dark";\n@import "richer-text";\n)
         end
       end
-
-      def generate_stimulus_controller
-        say "Copying Stimulus controller", :green
-        copy_file "app/javascript/controllers/richer_text_editor_controller.js", "app/javascript/controllers/richer_text_editor_controller.js"
-
-        say "Updating Stimulus manifest", :green
-        rails_command "stimulus:manifest:update"
-      end
     end
   end
 end
