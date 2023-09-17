@@ -10,7 +10,7 @@ module ActionView::Helpers
       options = @options.stringify_keys
       add_default_name_and_id(options)
       options["input"] ||= dom_id(object, [options["id"], :richer_text_input].compact.join("_")) if object
-      options["value"] = options.fetch("value") { value&.to_html }
+      options["value"] = options.fetch("value") { value&.to_editor_format }
 
       @template_object.richer_text_area_tag(options.delete("name"), options["value"], options.except("value"))
     end

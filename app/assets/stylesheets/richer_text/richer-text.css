@@ -34,3 +34,9 @@
 .richer-text img {
   width: 100%;
 }
+
+.richer-text blockquote {
+  border-left: 2px solid #ced4da;
+  margin: 0;
+  padding: 0 0 0 10px;
+}
