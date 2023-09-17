@@ -11,6 +11,7 @@ module ActionView::Helpers
       add_default_name_and_id(options)
       options["input"] ||= dom_id(object, [options["id"], :richer_text_input].compact.join("_")) if object
       options["value"] = options.fetch("value") { value&.to_editor_format }
+      options["serializer"] = options.fetch("serializer") { object.class.send(:"richer_text_#{@method_name}_json") ? "json" : "html" }
 
       @template_object.richer_text_area_tag(options.delete("name"), options["value"], options.except("value"))
     end
@@ -39,6 +40,9 @@ module RicherText
 
       # So that we can access the content in the tiptap editor
       options[:content] ||= value
+
+      # So we can choose the serializer to use, e.g. "html" or "json"
+      options[:serializer] ||= "html"
 
       input_tag = hidden_field_tag(name, value, id: options[:input])
       editor_tag = tag("richer-text-editor", options)

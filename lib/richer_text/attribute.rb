@@ -4,6 +4,10 @@ module RicherText
 
     class_methods do
       def has_richer_text(name, json: false)
+        # Store if the attribute is using JSON or not.
+        class_attribute :"richer_text_#{name}_json", instance_writer: false
+        self.send(:"richer_text_#{name}_json=", json)
+
         class_eval <<-CODE, __FILE__, __LINE__ + 1
           def #{name}
             richer_text_#{name} || build_richer_text_#{name}
