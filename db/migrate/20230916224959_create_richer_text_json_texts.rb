@@ -1,7 +1,7 @@
 class CreateRicherTextJsonTexts < ActiveRecord::Migration[7.0]
   def change
     create_table :richer_text_json_texts do |t|
-      t.string :name
+      t.string :name, null: false
       t.text :body, size: :long
       t.references :record, null: false, polymorphic: true
 
