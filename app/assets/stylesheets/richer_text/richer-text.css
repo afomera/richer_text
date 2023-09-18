@@ -18,6 +18,7 @@
 
 .richer-text table td>*,
 .richer-text table th>* {
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -32,5 +33,11 @@
 }
 
 .richer-text img {
-  width: 100%;
+  width: auto;
+}
+
+.richer-text blockquote {
+  border-left: 2px solid #ced4da;
+  margin: 1rem 0.5rem;
+  padding: 0 0 0 10px;
 }

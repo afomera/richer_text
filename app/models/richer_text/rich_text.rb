@@ -15,6 +15,10 @@ module RicherText
       body&.to_html&.to_s
     end
 
+    def to_editor_format
+      body&.to_html&.to_s
+    end
+
     private
 
     def update_images

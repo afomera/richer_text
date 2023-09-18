@@ -3,7 +3,11 @@ module RicherText
     extend ActiveSupport::Concern
 
     class_methods do
-      def has_richer_text(name)
+      def has_richer_text(name, json: false)
+        # Store if the attribute is using JSON or not.
+        class_attribute :"richer_text_#{name}_json", instance_writer: false
+        self.send(:"richer_text_#{name}_json=", json)
+
         class_eval <<-CODE, __FILE__, __LINE__ + 1
           def #{name}
             richer_text_#{name} || build_richer_text_#{name}
@@ -19,7 +23,7 @@ module RicherText
         CODE
 
         has_one :"richer_text_#{name}", -> { where(name: name) },
-          class_name: "RicherText::RichText", as: :record, inverse_of: :record, autosave: true, dependent: :destroy
+          class_name: json ? "RicherText::JsonText" : "RicherText::RichText", as: :record, inverse_of: :record, autosave: true, dependent: :destroy
 
         scope :"with_richer_text_#{name}", -> { includes("richer_text_#{name}") }
       end
