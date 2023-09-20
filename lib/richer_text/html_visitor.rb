@@ -6,11 +6,11 @@ module RicherText
       node.accept(self)
     end
 
-    # TODO: Handle non-previewable figure attachments
     def visit_attachment_figure(node)
       "<figure sgid=#{node.attrs["sgid"]}>
-        <img src=#{node.url} />
+        #{node_previewable?(node) ? "<img src=#{node.url} />" : "<a href=#{node.url} target='_blank'>"}
         <figcaption class='attachment__caption'>#{visit_children(node).join}</figcaption>
+        #{node_previewable?(node) ? "" : "</a>"}
       </figure>"
     end
 
@@ -92,6 +92,16 @@ module RicherText
 
     def visit_table_header(node)
       "<th>#{visit_children(node).join}</th>"
+    end
+
+    private
+
+    def previewable_regex
+      /^image(\/(gif|png|jpe?g)|$)/
+    end
+
+    def node_previewable?(node)
+      node.attrs["contentType"].match(previewable_regex)
     end
   end
 end
