@@ -6,18 +6,12 @@ module RicherText
       node.accept(self)
     end
 
+    # TODO: Handle non-previewable figure attachments
     def visit_attachment_figure(node)
-      "<figure
-          sgid=#{node.attrs["sgid"]}
-          class=${figureClasses}
-          data-trix-content-type=${contentType}
-          data-trix-attachment=${trixAttachment}
-          data-trix-attributes=${trixAttributes}
-        >
-            <img src=#{node.attrs["src"] || ""} />
-
-          <figcaption class='attachment__caption'>#{visit_children(node).join}</figcaption>
-        </figure>"
+      "<figure sgid=#{node.attrs["sgid"]}>
+        <img src=#{node.url} />
+        <figcaption class='attachment__caption'>#{visit_children(node).join}</figcaption>
+      </figure>"
     end
 
     def visit_attachment_gallery(node)
