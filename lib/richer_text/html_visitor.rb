@@ -8,7 +8,7 @@ module RicherText
 
     def visit_attachment_figure(node)
       "<figure
-        sgid=#{node.attrs["sgid"]}
+          sgid=#{node.attrs["sgid"]}
           class=${figureClasses}
           data-trix-content-type=${contentType}
           data-trix-attachment=${trixAttachment}

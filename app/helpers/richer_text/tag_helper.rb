@@ -78,11 +78,8 @@ module RicherText
       options = options.symbolize_keys
       options[:input] ||= "rhino_text_input_#{RicherText::TagHelper.id += 1}"
 
-      # # So that we can access the content in the tiptap editor
-      # options[:content] ||= value
-
       # So we can choose the serializer to use, e.g. "html" or "json"
-      options[:serializer] ||= "json"
+      options[:serializer] ||= "html"
 
       input_tag = hidden_field_tag(name, value, id: options[:input])
       editor_tag = tag("rhino-editor", { input: options[:input], serializer: "json",  data: { "blob-url-template": rails_service_blob_url(":signed_id", ":filename"), "direct-upload-url": rails_direct_uploads_url }}.merge(options))
