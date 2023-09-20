@@ -8,8 +8,8 @@ module RicherText
 
     def self.build(json)
       node = json.is_a?(String) ? JSON.parse(json) : json
-      klass = "RicherText::Nodes::#{node["type"].underscore.classify}".safe_constantize
-      klass.new(node)
+      klass = "RicherText::Nodes::#{node["type"].underscore.classify}".constantize
+      klass.new(node) if klass
     end
 
     def initialize(json)

@@ -21,6 +21,8 @@ module RicherText
   module Nodes
     extend ActiveSupport::Autoload
 
+    autoload :AttachmentFigure # For Rhino Editor support
+    autoload :AttachmentGallery # For Rhino Editor support
     autoload :Blockquote
     autoload :BulletList
     autoload :Callout

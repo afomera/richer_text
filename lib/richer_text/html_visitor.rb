@@ -6,6 +6,24 @@ module RicherText
       node.accept(self)
     end
 
+    def visit_attachment_figure(node)
+      "<figure
+        sgid=#{node.attrs["sgid"]}
+          class=${figureClasses}
+          data-trix-content-type=${contentType}
+          data-trix-attachment=${trixAttachment}
+          data-trix-attributes=${trixAttributes}
+        >
+            <img src=#{node.attrs["src"] || ""} />
+
+          <figcaption class='attachment__caption'>#{visit_children(node).join}</figcaption>
+        </figure>"
+    end
+
+    def visit_attachment_gallery(node)
+      "<div class='attachment-gallery'>#{visit_children(node).join}</div>"
+    end
+
     def visit_blockquote(node)
       "<blockquote>#{visit_children(node).join}</blockquote>"
     end
