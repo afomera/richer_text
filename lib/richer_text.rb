@@ -33,8 +33,9 @@ module RicherText
     autoload :HorizontalRule
     autoload :Image
     autoload :ListItem
-    autoload :Paragraph
+    autoload :Mention
     autoload :OrderedList
+    autoload :Paragraph
     autoload :Text
     autoload :Table
     autoload :TableCell

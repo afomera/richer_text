@@ -19,6 +19,12 @@ module RicherText
       body&.to_html&.to_s
     end
 
+    def mentionees
+      global_ids = body&.mentionees_global_ids
+
+      GlobalID::Locator.locate_many(global_ids)
+    end
+
     private
 
     def update_images

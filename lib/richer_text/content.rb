@@ -28,6 +28,12 @@ module RicherText
       end.uniq
     end
 
+    def mentionees_global_ids
+      global_ids = fragment.find_all("span[data-type=mention]").map do |span|
+        span.attributes["data-id"].value
+      end.uniq
+    end
+
     def image_blobs
       image_blob_ids.map { |id| ActiveStorage::Blob.find_signed(id) }
     end

@@ -42,6 +42,17 @@ module RicherText
       "<div class='richer-text'>#{visit_children(node).join("\n")}</div>".html_safe
     end
 
+    def visit_mention(node, marks)
+      if marks.any?
+        content_tag(marks[0].tag, visit_mention(node, marks[1..]), marks[0].attrs)
+      else
+        tag.span(
+          tag.img(src: node.avatar_url, class: "richer-text--mention-img") +
+          tag.span(node.name, class: "richer-text--mention-label"),
+          class: "richer-text--mention")
+      end
+    end
+
     def visit_paragraph(node)
       "<p style='#{node.style}'>#{visit_children(node).join}</p>"
     end

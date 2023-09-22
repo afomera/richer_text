@@ -19,6 +19,12 @@ module RicherText
       RicherText.default_renderer.visit(document)
     end
 
+    def mentionees
+      gids = mention_nodes.map(&:id).compact_blank
+
+      GlobalID::Locator.locate_many(gids).uniq # Only return unique records
+    end
+
     private
 
     def update_attachments
@@ -28,6 +34,10 @@ module RicherText
 
     def image_nodes
       find_nodes_of_type(RicherText::Nodes::Image).flatten.compact_blank
+    end
+
+    def mention_nodes
+      find_nodes_of_type(RicherText::Nodes::Mention).flatten.compact_blank
     end
 
     def rhino_attachment_nodes
