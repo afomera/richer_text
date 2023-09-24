@@ -14,6 +14,8 @@ module RicherText
   autoload :Serialization
   autoload :TagHelper
 
+  autoload :Embed
+
   autoload :Node
   autoload :Mark
   autoload :HTMLVisitor
@@ -36,6 +38,7 @@ module RicherText
     autoload :Mention
     autoload :OrderedList
     autoload :Paragraph
+    autoload :RicherTextEmbed
     autoload :Text
     autoload :Table
     autoload :TableCell

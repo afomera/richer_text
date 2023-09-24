@@ -1,6 +1,7 @@
 module RicherText
   class Node
     attr_reader :json, :attrs, :children, :type
+    include RicherText::Rendering
 
     STYLES = {
       "textAlign" => "text-align",
