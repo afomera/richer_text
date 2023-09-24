@@ -3,7 +3,7 @@ module RicherText
     include Rendering
 
     def self.find(sgid)
-      @embed = GlobalID::Locator.locate_signed(sgid, for: "attachable")
+      @embed = GlobalID::Locator.locate_signed(sgid, for: "embeddable")
       new(@embed) if @embed
     end
 
@@ -17,11 +17,11 @@ module RicherText
       @embed
     end
 
-    delegate :to_attachable_partial_path, to: :@embed
+    delegate :to_embeddable_partial_path, to: :@embed
     delegate :model_name, to: :@embed
 
     def html
-      render partial: to_attachable_partial_path, object: object, as: model_name.element
+      render partial: to_embeddable_partial_path, object: object, as: model_name.element
     end
   end
 end

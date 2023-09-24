@@ -6,13 +6,13 @@ module RicherText
       end
 
       def html
-        render partial: embeddable.to_attachable_partial_path, object: embeddable, as: embeddable.model_name.element
+        render partial: embeddable.to_embeddable_partial_path, object: embeddable, as: embeddable.model_name.element
       rescue ActiveRecord::RecordNotFound
         "" # TODO: handle this better
       end
 
       def embeddable
-        @embeddable ||= GlobalID::Locator.locate_signed(sgid, for: "attachable")
+        @embeddable ||= GlobalID::Locator.locate_signed(sgid, for: "embeddable")
       end
     end
   end
