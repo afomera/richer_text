@@ -2,8 +2,6 @@ module RicherText
   module Embeddable
     extend ActiveSupport::Concern
 
-    LOCATOR = "embeddable"
-
     included do
       def embeddable_sgid
         to_sgid(expires_in: nil, for: "embeddable").to_s
