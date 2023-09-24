@@ -15,14 +15,6 @@ module RicherText
         @action_controller_renderer ||= Class.new(ActionController::Base).renderer
       end
 
-      def with_renderer(renderer)
-        previous_renderer = self.renderer
-        self.renderer = renderer
-        yield
-      ensure
-        self.renderer = previous_renderer
-      end
-
       def render(*args, &block)
         (renderer || action_controller_renderer).render_to_string(*args, &block)
       end
