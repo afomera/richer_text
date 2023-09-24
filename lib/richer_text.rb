@@ -15,6 +15,7 @@ module RicherText
   autoload :TagHelper
 
   autoload :Embed
+  autoload :Embeddable
 
   autoload :Node
   autoload :Mark

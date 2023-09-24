@@ -57,6 +57,10 @@ module RicherText
       "<p style='#{node.style}'>#{visit_children(node).join}</p>"
     end
 
+    def visit_richer_text_embed(node)
+      node.html
+    end
+
     def visit_list_item(node)
       "<li>#{visit_children(node).join}</li>"
     end
