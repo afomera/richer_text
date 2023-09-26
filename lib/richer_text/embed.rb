@@ -17,11 +17,11 @@ module RicherText
       @embed
     end
 
-    delegate :to_embeddable_partial_path, to: :@embed
+    delegate :to_richer_text_editor_partial_path, to: :@embed
     delegate :model_name, to: :@embed
 
     def html
-      render partial: to_embeddable_partial_path, object: object, as: model_name.element
+      render partial: to_richer_text_editor_partial_path, object: object, as: model_name.element
     end
   end
 end

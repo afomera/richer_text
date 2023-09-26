@@ -10,6 +10,10 @@ module RicherText
       def to_embeddable_partial_path
         to_partial_path
       end
+
+      def to_richer_text_editor_partial_path
+        to_partial_path
+      end
     end
   end
 end

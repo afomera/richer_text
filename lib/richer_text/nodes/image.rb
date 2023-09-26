@@ -8,6 +8,10 @@ module RicherText
       def signed_id
         @signed_id = attrs['signedId']
       end
+
+      def width
+        attrs['width']
+      end
     end
   end
 end

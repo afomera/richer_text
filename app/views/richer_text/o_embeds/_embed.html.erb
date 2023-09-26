@@ -1,0 +1,11 @@
+<% if o_embed.thumbnail_url && !o_embed.html %>
+  <div class="embed">
+    <%= image_tag o_embed.thumbnail_url %>
+  </div>
+<% elsif o_embed.html %>
+  <div class="embed">
+    <%= o_embed.html.html_safe %>
+  </div>
+<% elsif o_embed.provider_name %>
+  <%= link_to o_embed.provider_name, o_embed.url %>
+<% end %>

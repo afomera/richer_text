@@ -7,7 +7,7 @@ module RicherText
 
       def html
         render partial: embeddable.to_embeddable_partial_path, object: embeddable, as: embeddable.model_name.element
-      rescue ActiveRecord::RecordNotFound
+      rescue ActiveRecord::RecordNotFound, NoMethodError
         "" # TODO: handle this better
       end
 

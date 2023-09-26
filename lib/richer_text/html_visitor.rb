@@ -82,7 +82,7 @@ module RicherText
     end
 
     def visit_image(node)
-      "<img src='#{node.src}' />"
+      "<img src='#{node.src}' width='#{node.width}' />"
     end
 
     def visit_text(node, marks)
