@@ -4,7 +4,7 @@ module RicherText
     include RicherText::Rendering
 
     STYLES = {
-      "textAlign" => "text-align",
+      "textAlign" => "text-align"
     }
 
     def self.build(json)

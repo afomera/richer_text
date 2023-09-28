@@ -89,7 +89,7 @@ module RicherText
       if marks.empty?
         node.text
       else
-        content_tag(marks[0].tag, visit_text(node, marks[1..]), marks[0].attrs)
+        content_tag(marks[0].tag, visit_text(node, marks[1..]), parse_mark_attrs(marks[0]))
       end
     end
 
@@ -117,6 +117,19 @@ module RicherText
 
     def node_previewable?(node)
       node.attrs["contentType"].match(previewable_regex)
+    end
+
+    def parse_mark_attrs(mark)
+      attrs = mark.attrs
+      tag = mark.tag
+
+      if attrs.dig("color").present? && tag == "mark"
+        attrs.merge(style: "background-color: #{attrs["color"]};")
+      elsif attrs.dig("color").present? && tag == "span"
+        attrs.merge(style: "color: #{attrs["color"]};")
+      else
+        attrs
+      end
     end
   end
 end
