@@ -26,7 +26,7 @@ module RicherText
 
         if destination.join("package.json").exist?
           say "Adding dependencies to package.json", :green
-          run "yarn add react react-dom highlight.js @afomera/richer-text"
+          run "yarn add highlight.js @afomera/richer-text@alpha"
         end
 
         say "Adding import to application.js", :green
