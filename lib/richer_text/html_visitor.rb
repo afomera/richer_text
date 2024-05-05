@@ -127,6 +127,8 @@ module RicherText
         attrs.merge(style: "background-color: #{attrs["color"]};")
       elsif attrs.dig("color").present? && tag == "span"
         attrs.merge(style: "color: #{attrs["color"]};")
+      elsif attrs.dig("fontSize").present? && tag == "span"
+        attrs.merge(style: "font-size: #{attrs["fontSize"]};")
       else
         attrs
       end
