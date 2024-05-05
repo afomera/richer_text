@@ -4,7 +4,7 @@ module RicherText
 
     belongs_to :record, polymorphic: true, touch: true
 
-    serialize :body, JSON, default: DEFAULT_BODY.to_json
+    serialize :body, coder: JSON, default: DEFAULT_BODY.to_json
 
     has_many_attached :images
     has_many_attached :rhino_attachments # For handling attachments in the Rhino Editor
