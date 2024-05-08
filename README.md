@@ -2,7 +2,7 @@
 
 RicherText aims to provide a richer text editing experience than what comes out of the box with ActionText in Rails. **It is however a seperate thing from ActionText** and is **not** backwards compatible.
 
-RicherText uses React and TipTap under the hood to create an editor, this does mean that you'll have react and react-dom in your project, but you absolutely don't need to use it outside of the RicherText editor. Additionally there's currently a hard requirement for ActiveStorage as well.
+RicherText uses Lit and TipTap under the hood to create an editor. Additionally there's currently a hard requirement for ActiveStorage as well.
 
 ## Installation
 
@@ -50,9 +50,11 @@ Take a Post model where you'd like to add RicherText to write, and edit the body
 
 ```ruby
 class Post < ApplicationRecord
-  has_richer_text :body
+  has_richer_text :body, store_as: :json
 end
 ```
+
+We recommend storing your Richer Text records as JSON for full compatibility with the TipTap schema under the hood.
 
 **Add the form helper to the form**
 
