@@ -2,7 +2,7 @@ module RicherText
   class RichText < ApplicationRecord
     belongs_to :record, polymorphic: true, touch: true
 
-    serialize :body, RicherText::Content
+    serialize :body, coder: RicherText::Content
 
     delegate :to_s, :nil?, to: :body
     delegate :blank?, :empty?, :present?, to: :to_html
