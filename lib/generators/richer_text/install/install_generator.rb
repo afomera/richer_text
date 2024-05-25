@@ -26,7 +26,11 @@ module RicherText
 
         if destination.join("package.json").exist?
           say "Adding dependencies to package.json", :green
-          run "yarn add highlight.js @afomera/richer-text@alpha"
+
+          run "npm install highlight.js @afomera/richer-text@alpha" if destination.join("package-lock.json").exist?
+          run "bun add highlight.js @afomera/richer-text@alpha" if destination.join("bun.lockb").exist?
+          run "yarn add highlight.js @afomera/richer-text@alpha" if destination.join("yarn.lock").exist?
+          run "pnpm add highlight.js @afomera/richer-text@alpha" if destination.join("pnpm-lock.yaml").exist?
         end
 
         say "Adding import to application.js", :green
