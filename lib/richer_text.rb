@@ -34,6 +34,7 @@ module RicherText
     autoload :HardBreak
     autoload :Heading
     autoload :HorizontalRule
+    autoload :IframelyEmbed
     autoload :Image
     autoload :ListItem
     autoload :Mention

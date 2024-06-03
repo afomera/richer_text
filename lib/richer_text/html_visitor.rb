@@ -42,6 +42,10 @@ module RicherText
       "<div class='richer-text'>#{visit_children(node).join("\n")}</div>".html_safe
     end
 
+    def visit_iframely_embed(node)
+      node.html
+    end
+
     def visit_mention(node, marks)
       if marks.any?
         content_tag(marks[0].tag, visit_mention(node, marks[1..]), marks[0].attrs)
