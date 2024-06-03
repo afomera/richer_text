@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    richer_text (0.13.0)
+    richer_text (0.14.0)
       rails (> 7.0.0)
       ruby-oembed
 
