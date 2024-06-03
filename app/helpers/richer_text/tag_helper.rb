@@ -59,7 +59,7 @@ module RicherText
     cattr_accessor(:id, instance_accessor: false) { 0 }
 
     def richer_text_area_tag(name, value = nil, options = {})
-      options = options.symbolize_keys
+      options = RicherText.default_form_options.merge(options.symbolize_keys).symbolize_keys
       options[:input] ||= "richer_text_input_#{RicherText::TagHelper.id += 1}"
 
       # So that we can access the content in the tiptap editor

@@ -52,6 +52,10 @@ module RicherText
       @default_renderer ||= RicherText::HTMLVisitor.new
     end
 
-    attr_writer :default_renderer
+    def default_form_options
+      @default_form_options ||= {}
+    end
+
+    attr_writer :default_renderer, :default_form_options
   end
 end
