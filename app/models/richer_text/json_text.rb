@@ -19,6 +19,10 @@ module RicherText
       RicherText.default_renderer.visit(document)
     end
 
+    def to_plain_text
+      RicherText.default_text_renderer.visit(document)
+    end
+
     def mentionees
       gids = mention_nodes.map(&:id).compact_blank
 
