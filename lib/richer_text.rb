@@ -20,6 +20,7 @@ module RicherText
   autoload :Node
   autoload :Mark
   autoload :HTMLVisitor
+  autoload :TextVisitor
 
   module Nodes
     extend ActiveSupport::Autoload
@@ -53,10 +54,14 @@ module RicherText
       @default_renderer ||= RicherText::HTMLVisitor.new
     end
 
+    def default_text_renderer
+      @default_text_renderer ||= RicherText::TextVisitor.new
+    end
+
     def default_form_options
       @default_form_options ||= {}
     end
 
-    attr_writer :default_renderer, :default_form_options
+    attr_writer :default_renderer, :default_text_renderer, :default_form_options
   end
 end

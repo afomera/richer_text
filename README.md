@@ -39,9 +39,6 @@ document.addEventListener("turbo:load", (event) => {
 
 ## Usage
 
-> [!WARNING]  
-> You probably shouldn't use this gem / npm package (yet!) for anything serious. It's still undergoing development. But please do try it on a non-production app!
-
 To use RicherText, once you've completed the installation process is a matter of doing the following:
 
 **Add has_richer_text to a model**
