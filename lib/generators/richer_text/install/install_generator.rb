@@ -33,6 +33,14 @@ module RicherText
           run "pnpm add highlight.js @afomera/richer-text" if destination.join("pnpm-lock.yaml").exist?
         end
 
+        if (importmap_path = destination.join("config/importmap.rb")).exist?
+          run "curl -Lo ./vendor/javascript/richer-text.js https://unpkg.com/@afomera/richer-text@latest/dist/bundle/index.module.js"
+          run "curl -Lo ./app/assets/stylesheets/richer-text.css https://unpkg.com/@afomera/richer-text@2.0.0/dist/css/richer-text.css"
+
+          say "Adding import to importmap.rb", :green
+          append_to_file importmap_path.to_s, %(pin "@afomera/richer-text", to: "richer-text.js"\n)
+        end
+
         say "Adding import to application.js", :green
         append_to_file "app/javascript/application.js", %(import "@afomera/richer-text"\n)
       end
