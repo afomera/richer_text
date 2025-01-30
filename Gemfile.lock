@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    richer_text (0.18.0)
+    richer_text (0.19.0)
       rails (> 7.0.0)
       ruby-oembed
 
@@ -109,6 +109,7 @@ GEM
       net-smtp
     marcel (1.0.4)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.8)
     minitest (5.22.3)
     mutex_m (0.2.0)
     net-imap (0.4.10)
@@ -121,7 +122,8 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
-    nokogiri (1.16.4-x86_64-darwin)
+    nokogiri (1.16.4)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pg (1.5.6)
     psych (5.1.2)
@@ -194,6 +196,7 @@ PLATFORMS
   x86_64-darwin-21
   x86_64-darwin-22
   x86_64-darwin-23
+  x86_64-darwin-24
 
 DEPENDENCIES
   pg

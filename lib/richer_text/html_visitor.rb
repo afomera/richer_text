@@ -35,7 +35,7 @@ module RicherText
     end
 
     def visit_code_block(node)
-      "<pre><code>#{visit_children(node).join("\n")}</code></pre>"
+      "<pre><code>#{ERB::Util.html_escape(visit_children(node).join("\n"))}</code></pre>"
     end
 
     def visit_doc(node)
