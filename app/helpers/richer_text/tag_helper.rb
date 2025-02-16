@@ -12,6 +12,7 @@ module ActionView::Helpers
       options["input"] ||= dom_id(object, [options["id"], :richer_text_input].compact.join("_")) if object
       options["value"] = options.fetch("value") { value&.to_editor_format }
       options["serializer"] = options.fetch("serializer") { object.class.send(:"richer_text_#{@method_name}_json") ? "json" : "html" }
+      options["attachments"] = options.fetch("attachments") { object.class.send(:"richer_text_#{@method_name}_allow_attachments") }
 
       @template_object.richer_text_area_tag(options.delete("name"), options["value"], options.except("value"))
     end

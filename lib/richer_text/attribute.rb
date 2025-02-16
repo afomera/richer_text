@@ -3,10 +3,14 @@ module RicherText
     extend ActiveSupport::Concern
 
     class_methods do
-      def has_richer_text(name, store_as: :html)
+      def has_richer_text(name, store_as: :html, attachments: true)
         # Store if the attribute is using JSON or not.
         class_attribute :"richer_text_#{name}_json", instance_writer: false
         self.send(:"richer_text_#{name}_json=", store_as == :json)
+
+        # Store if the attribute allows attachments
+        class_attribute :"richer_text_#{name}_allow_attachments", instance_writer: false
+        self.send(:"richer_text_#{name}_allow_attachments=", attachments)
 
         class_eval <<-CODE, __FILE__, __LINE__ + 1
           def #{name}
